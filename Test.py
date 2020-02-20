@@ -1,3 +1,7 @@
-import numpy as np
+import tkinter
+from tkinter import messagebox
 
-print(np.sin(np.radians(30)))
+def showharmonic(h,n):
+    # message box display
+    s='Harmonic '+str(int(n))+ '= '+str(h)
+    messagebox.showinfo("RESULT",s)
