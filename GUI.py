@@ -1,13 +1,42 @@
 from tkinter import *
-
+import Fourier as f
 root=Tk()
 
 root.title('Form')
 
+def getandpass(event):
+
+    n=float(e1.get())
+
+    x=[]
+    x.append(float(e2.get()))
+    x.append(float(e3.get()))
+    x.append(float(e4.get()))
+    x.append(float(e5.get()))
+    x.append(float(e6.get()))
+    x.append(float(e7.get()))
+
+    y=[]
+    y.append(float(e2y.get()))
+    y.append(float(e3y.get()))
+    y.append(float(e4y.get()))
+    y.append(float(e5y.get()))
+    y.append(float(e6y.get()))
+    y.append(float(e7y.get()))
+
+    
+    
+    h=f.calculate(x,y,n)
+    print(h)
+
+
+
 b1=Button(root,text='Submit',bg='Turquoise')
 
+
+
 #l1=Label(root,text='Enter Corresponding x-y values')
-l2=Label(root,text='Enter required harmonic')
+l2=Label(root,text='Enter required Harmonic')
 e1=Entry(root)
 
 #First Row
@@ -76,7 +105,8 @@ e7y.grid(row=7,column=2)
 b1.grid(row=9,columnspan=3)
 
 
-
+#Button Code
+b1.bind('<Button-1>',getandpass)
 
 
 root.mainloop()
