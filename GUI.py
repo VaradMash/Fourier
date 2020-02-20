@@ -1,8 +1,13 @@
 from tkinter import *
 import Fourier as f
+import Test as t
 root=Tk()
 
-root.title('Form')
+root.title('Harmonic Calculator')
+
+
+
+        
 
 def getandpass(event):
 
@@ -26,18 +31,74 @@ def getandpass(event):
 
     
     
-    h=f.calculate(x,y,n)
-    print(h)
+    h=f.calculatefull(x,y,n)
+    t.showharmonic(h,n)
+    
+
+def getandpasscos(event):
+
+    n=float(e1.get())
+
+    x=[]
+    x.append(float(e2.get()))
+    x.append(float(e3.get()))
+    x.append(float(e4.get()))
+    x.append(float(e5.get()))
+    x.append(float(e6.get()))
+    x.append(float(e7.get()))
+
+    y=[]
+    y.append(float(e2y.get()))
+    y.append(float(e3y.get()))
+    y.append(float(e4y.get()))
+    y.append(float(e5y.get()))
+    y.append(float(e6y.get()))
+    y.append(float(e7y.get()))
+
+    
+    
+    h=f.calculatehalfcos(x,y,n)
+    t.showharmonic(h,n)
+    
+
+def getandpasssin(event):
+
+    n=float(e1.get())
+
+    x=[]
+    x.append(float(e2.get()))
+    x.append(float(e3.get()))
+    x.append(float(e4.get()))
+    x.append(float(e5.get()))
+    x.append(float(e6.get()))
+    x.append(float(e7.get()))
+
+    y=[]
+    y.append(float(e2y.get()))
+    y.append(float(e3y.get()))
+    y.append(float(e4y.get()))
+    y.append(float(e5y.get()))
+    y.append(float(e6y.get()))
+    y.append(float(e7y.get()))
+
+    
+    
+    h=f.calculatehalfsin(x,y,n)
+    t.showharmonic(h,n)
+    
 
 
 
-b1=Button(root,text='Submit',bg='Turquoise')
 
+b1=Button(root,text='Full Range',bg='Turquoise')
+b2=Button(root,text='Half Range Cosine',bg='Turquoise')
+b3=Button(root,text='Half Range Sine',bg='Turquoise')
 
-
-#l1=Label(root,text='Enter Corresponding x-y values')
 l2=Label(root,text='Enter required Harmonic')
 e1=Entry(root)
+
+
+
 
 #First Row
 l3=Label(root,text='Sr.No.')
@@ -101,12 +162,21 @@ e5y.grid(row=5,column=2)
 e6y.grid(row=6,column=2)
 e7y.grid(row=7,column=2)
 
+
+
+
+
 #Button Placement
-b1.grid(row=9,columnspan=3)
+b1.grid(row=11,column=0)
+b2.grid(row=11,column=1)
+b3.grid(row=11,column=2)
 
 
-#Button Code
+#Button Code Binding
 b1.bind('<Button-1>',getandpass)
+b2.bind('<Button-1>',getandpasscos)
+b3.bind('<Button-1>',getandpasssin)
+
 
 
 root.mainloop()
