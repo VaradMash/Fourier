@@ -1,9 +1,9 @@
 import numpy as np
 
-def calculatefull(x,y,n):
+def calculatefull(x,y,n,p):
     s,c = 0,0
 
-    step=(2*np.pi)/len(x)
+    step=(2*np.pi)/p
 
 
     
@@ -21,8 +21,8 @@ def calculatefull(x,y,n):
 
 
 #Half Range Cosine
-def calculatehalfcos(x,y,n):
-    step=(np.pi)/len(x)
+def calculatehalfcos(x,y,n,p):
+    step=(np.pi)/p
     
     c = 0
 
@@ -40,8 +40,8 @@ def calculatehalfcos(x,y,n):
     return t
 
 #Half Range Sine
-def calculatehalfsin(x,y,n):
-    step=(np.pi)/len(x)
+def calculatehalfsin(x,y,n,p):
+    step=(np.pi)/p
 
     s = 0
 
