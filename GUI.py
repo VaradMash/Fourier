@@ -12,6 +12,7 @@ root.title('Harmonic Calculator')
 def getandpass(event):
 
     n=float(e1.get())
+    p=float(e0.get())
 
     x=[]
     x.append(float(e2.get()))
@@ -31,13 +32,14 @@ def getandpass(event):
 
     
     
-    h=f.calculatefull(x,y,n)
+    h=f.calculatefull(x,y,n,p)
     t.showharmonic(h,n)
     
 
 def getandpasscos(event):
 
     n=float(e1.get())
+    p=float(e0.get())
 
     x=[]
     x.append(float(e2.get()))
@@ -57,13 +59,14 @@ def getandpasscos(event):
 
     
     
-    h=f.calculatehalfcos(x,y,n)
+    h=f.calculatehalfcos(x,y,n,p)
     t.showharmonic(h,n)
     
 
 def getandpasssin(event):
 
     n=float(e1.get())
+    p=float(e0.get())
 
     x=[]
     x.append(float(e2.get()))
@@ -83,7 +86,7 @@ def getandpasssin(event):
 
     
     
-    h=f.calculatehalfsin(x,y,n)
+    h=f.calculatehalfsin(x,y,n,p)
     t.showharmonic(h,n)
     
 
@@ -97,7 +100,8 @@ b3=Button(root,text='Half Range Sine',bg='Turquoise')
 l2=Label(root,text='Enter required Harmonic')
 e1=Entry(root)
 
-
+l0=Label(root,text="Enter Period")
+e0=Entry(root)
 
 
 #First Row
@@ -163,6 +167,9 @@ e6y.grid(row=6,column=2)
 e7y.grid(row=7,column=2)
 
 
+#Period Placement
+l0.grid(row=10,column=0)
+e0.grid(row=10,column=1)
 
 
 
