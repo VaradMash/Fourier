@@ -1,6 +1,7 @@
 from tkinter import *
 import Fourier as f
 import Test as t
+import PlotCal as pl
 root=Tk()
 
 root.title('Harmonic Calculator')
@@ -91,11 +92,80 @@ def getandpasssin(event):
     
 
 
+def graph_full(event):
+    n=float(e1.get())
+    p=float(e0.get())
 
+    x=[]
+    x.append(float(e2.get()))
+    x.append(float(e3.get()))
+    x.append(float(e4.get()))
+    x.append(float(e5.get()))
+    x.append(float(e6.get()))
+    x.append(float(e7.get()))
+
+    y=[]
+    y.append(float(e2y.get()))
+    y.append(float(e3y.get()))
+    y.append(float(e4y.get()))
+    y.append(float(e5y.get()))
+    y.append(float(e6y.get()))
+    y.append(float(e7y.get()))
+
+    pl.graphfull(x,y,p)
+
+def graph_half_c(event):
+    n=float(e1.get())
+    p=float(e0.get())
+
+    x=[]
+    x.append(float(e2.get()))
+    x.append(float(e3.get()))
+    x.append(float(e4.get()))
+    x.append(float(e5.get()))
+    x.append(float(e6.get()))
+    x.append(float(e7.get()))
+
+    y=[]
+    y.append(float(e2y.get()))
+    y.append(float(e3y.get()))
+    y.append(float(e4y.get()))
+    y.append(float(e5y.get()))
+    y.append(float(e6y.get()))
+    y.append(float(e7y.get()))
+
+    pl.graphhalfcos(x,y,p)
+
+def graph_half_s(event):
+    n=float(e1.get())
+    p=float(e0.get())
+
+    x=[]
+    x.append(float(e2.get()))
+    x.append(float(e3.get()))
+    x.append(float(e4.get()))
+    x.append(float(e5.get()))
+    x.append(float(e6.get()))
+    x.append(float(e7.get()))
+
+    y=[]
+    y.append(float(e2y.get()))
+    y.append(float(e3y.get()))
+    y.append(float(e4y.get()))
+    y.append(float(e5y.get()))
+    y.append(float(e6y.get()))
+    y.append(float(e7y.get()))
+
+    pl.graphhalfsin(x,y,p)
+
+    
 
 b1=Button(root,text='Full Range',bg='Turquoise')
 b2=Button(root,text='Half Range Cosine',bg='Turquoise')
 b3=Button(root,text='Half Range Sine',bg='Turquoise')
+b4=Button(root,text='Ratio Graph(Full Range)',bg='Turquoise')
+b5=Button(root,text='Ratio Graph(Half Range Cos)',bg='Turquoise')
+b6=Button(root,text='Ratio Graph(Half Range Sin)',bg='Turquoise')
 
 l2=Label(root,text='Enter required Harmonic')
 e1=Entry(root)
@@ -177,12 +247,19 @@ e0.grid(row=10,column=1)
 b1.grid(row=11,column=0)
 b2.grid(row=11,column=1)
 b3.grid(row=11,column=2)
+b4.grid(row=12,column=0)
+b5.grid(row=12,column=1)
+b6.grid(row=12,column=2)
 
 
 #Button Code Binding
 b1.bind('<Button-1>',getandpass)
 b2.bind('<Button-1>',getandpasscos)
 b3.bind('<Button-1>',getandpasssin)
+b4.bind('<Button-1>',graph_full)
+b5.bind('<Button-1>',graph_half_c)
+b6.bind('<Button-1>',graph_half_s)
+
 
 
 
